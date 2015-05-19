@@ -16,8 +16,6 @@ test data (30% volunteer's data)
 This (tidied) data set only looks at the average of mean & standard deviation measures only for all the 30 volunteers (test and 
 training combined) by activity.
 
-Note:- It is not necessary for all the volunteers to do all the activities.
-
 Cleaning and Deriving Data
 ---------------------------
 
@@ -25,10 +23,11 @@ Cleaning and Deriving Data
 2) Download the script "run_analysis.R"
 3) Source the script "run_analysis.R". (Use Command 1 below)
 4) Set "UCI HAR Dataset" (Samsung data directory) as current working directory. Use setwd R command for this.
-5) Use "tidydata()" to execute the fucntion which cleans 
+5) Use "tidydata()" to execute the function
+6) Function will generate tidy data file "UCITidyData.txt". If required use command 3 (below) to read the file back into R.
 
 
-R Commands Refrence
+R Commands Reference
 -----------------
 
 1) source("run_analysis.R") - Sources the Script to create the function.
@@ -44,6 +43,6 @@ Below is the brief description of each column (in the order they appear in the f
 2) ActivityID		-	ID for each of 6 Activities. So it ranges from 1-6.
 3) ActivityName		-	Name for each of the activity.Various activities are WALKING(ID:1),WALKING_UPSTAIRS(ID:2),
 				WALKING_DOWNSTAIRS (ID:3),SITTING(ID:4),STANDING(ID:5),LAYING(ID:6)
-4) Column 4:Column 82	- 	These are averages of mean & Standard deviation of various measures.
+4) Column 4 - Column 82	- 	These are averages of mean & Standard deviation of various measures.
 		
 
