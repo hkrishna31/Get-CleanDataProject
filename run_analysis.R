@@ -7,8 +7,8 @@ tidydata <- function()
 #Below scripts reads and coverts UCI Human Activity Recognition Data into Tidy Data 
 
 # load required Libraries
-suppressWarnings(library(plyr))
-suppressWarnings(library(dplyr))
+suppressPackageStartupMessages(suppressWarnings(library(plyr)))
+suppressPackageStartupMessages(suppressWarnings(library(dplyr)))
 library(stringr)
 library(reshape2)
 
@@ -62,7 +62,6 @@ X<-X[,mstd]
 activities <- read.table("activity_labels.txt") 
 
 # Add Activity Name (labels) to IDs in Y. 
-#Y<-merge(Y,activities,by.x="V1",by.y="V1",all.x=TRUE) 
 Y<-join(Y,activities,by="V1")
 
 #########
