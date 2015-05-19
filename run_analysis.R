@@ -1,4 +1,5 @@
 
+
 tidydata <- function()
 
 {
@@ -61,7 +62,8 @@ X<-X[,mstd]
 activities <- read.table("activity_labels.txt") 
 
 # Add Activity Name (labels) to IDs in Y. 
-Y<-merge(Y,activities,by.x="V1",by.y="V1",all.x=TRUE) 
+#Y<-merge(Y,activities,by.x="V1",by.y="V1",all.x=TRUE) 
+Y<-join(Y,activities,by="V1")
 
 #########
 #Step4 - Label data sets with descriptive Names
@@ -86,10 +88,7 @@ tdata2<-melt(tdata1,id.vars=c("SubjectID","ActivityID","ActivityName"))
 # Calculate mean of all measures and arrange them similar to original table structure
 tdata3<-dcast(tdata2,SubjectID+ActivityID+ActivityName~variable,mean)
 
-#Ideally there should be 180 rows in tdata3(30 subjects,6 activities per Subject), but not all Subjects have all activities.
-#So it will be less than 180
-
 # Create a text file with tidy data set.
-write.table(tdata3,"UCITidyData.txt",row.names=FALSE)
+write.table(tdata3,"UCITidyData.txt",sep=",",row.names=FALSE)
 
 } # End of Function
