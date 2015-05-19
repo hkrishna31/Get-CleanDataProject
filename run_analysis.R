@@ -62,7 +62,7 @@ X<-X[,mstd]
 activities <- read.table("activity_labels.txt") 
 
 # Add Activity Name (labels) to IDs in Y. 
-
+#Y<-merge(Y,activities,by.x="V1",by.y="V1",all.x=TRUE) 
 Y<-join(Y,activities,by="V1")
 
 #########
@@ -89,6 +89,6 @@ tdata2<-melt(tdata1,id.vars=c("SubjectID","ActivityID","ActivityName"))
 tdata3<-dcast(tdata2,SubjectID+ActivityID+ActivityName~variable,mean)
 
 # Create a text file with tidy data set.
-write.table(tdata3,"UCITidyData.txt",sep=",",row.names=FALSE)
+write.table(tdata3,"UCITidyData.txt",row.names=FALSE)
 
 } # End of Function
